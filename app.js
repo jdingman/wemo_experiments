@@ -7,31 +7,14 @@ var handleDevice = function(device) {
 	switch(device.deviceType) {
 
 	case wemo.WemoControllee.deviceType:
-		var wemoSwitch = new wemo.WemoControllee(device);
-		wemoSwitch.on("BinaryState", function(value) {
-			console.log("wemo switch state change: " + value);
-		});
-
-		setTimeout(function() {
-			wemoSwitch.setBinaryState(true);
-		}, 4000);
-		setTimeout(function() {
-			wemoSwitch.setBinaryState(false);
-		}, 6000);
-		break;
-
-	case wemo.WemoCoffee.deviceType:
-		var wemoCoffee = new wemo.WemoCoffee(device);
+		var wemoCoffee = new wemo.WemoControllee(device);
 		wemoCoffee.on("BinaryState", function(value) {
 			console.log("wemo coffee maker state change: " + value);
 		});
 
         setTimeout(function() {
 			wemoCoffee.setBinaryState(true);
-		}, 4000);
-		setTimeout(function() {
-			wemoCoffee.setBinaryState(false);
-		}, 6000);
+		}, 10000);
 		break;
 
 	}
